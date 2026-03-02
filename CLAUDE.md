@@ -59,3 +59,24 @@ Configured in `pyproject.toml`:
 ## Versioning
 
 Uses `uv-dynamic-versioning` — version is derived from git tags at build time. The `GitVersion` utility class handles release/tag workflows. Semantic versioning with `v`-prefixed tags (e.g., `v1.0.0`).
+
+## APIs
+
+### File upload
+
+- **Endpoint**: `POST /api/upload`
+- **Request**: multipart/form-data with file field `file`
+- **Description**: Upload a file for processing
+  Extract metadata (filename and page number) and save to database
+
+### Chat response
+
+- **Endpoint**: `POST /api/chat`
+- **Request**: JSON with `query` field (user input) and ref file index numbers and preset prompts
+- **Description**: Generate a response based on the query and file context. Uses RAG
+
+## Data models
+
+- Data model is defined in the models directory
+- Use pydantic BaseModel
+- Use model_dict and set alias to use format_converter that is defined in utils
