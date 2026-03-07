@@ -3,10 +3,17 @@ name = "ragapi"
 description = "RAG system with FastAPI."
 readme = "README.md"
 requires-python = ">=3.11"
-dependencies = ["fastapi[all]", "sqlmodel"]
+dependencies = [
+    "fastapi[all]",
+    "langchain>=1.2.10",
+    "langchain-ollama>=1.0.1",
+    "sqlmodel",
+]
 dynamic = ["version"]
 
 [project.scripts]
+start = "ragapi.app.main:start"
+dev = "ragapi.app.main:dev"
 
 [build-system]
 requires = ["hatchling", "uv-dynamic-versioning"]
