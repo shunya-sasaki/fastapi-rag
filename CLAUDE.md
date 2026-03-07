@@ -69,9 +69,9 @@ Uses `uv-dynamic-versioning` — version is derived from git tags at build time.
 - **Description**: Upload a file for processing
   Extract metadata (filename and page number) and save to database
 
-### Chat response
+### RAG Chat response
 
-- **Endpoint**: `POST /api/chat`
+- **Endpoint**: `POST /api/rag`
 - **Request**: JSON with `query` field (user input) and ref file index numbers and preset prompts
 - **Description**: Generate a response based on the query and file context. Uses RAG
 
