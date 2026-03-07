@@ -11,5 +11,6 @@
 /build
 /dist
 /sandbox
+/work
 !/.githooks/
 !/.gitignore
