@@ -9,7 +9,7 @@ from pydantic import Field
 from ragapi.utils import FormatConverter
 
 
-class ChatRequest(BaseModel):
+class RagChatRequest(BaseModel):
     """Request model for chat endpoint.
 
     Args:
@@ -25,10 +25,12 @@ class ChatRequest(BaseModel):
         populate_by_name=True,
     )
 
-    query: str = Field(default="hello", min_length=1)
+    query: str = Field(min_length=1)
+    file_indices: list[int] = Field(default_factory=list)
+    preset_prompts: list[str] = Field(default_factory=list)
 
 
-class ChatResponse(BaseModel):
+class RagChatResponse(BaseModel):
     """Response model for chat endpoint.
 
     Args:
@@ -43,3 +45,4 @@ class ChatResponse(BaseModel):
     )
 
     answer: str
+    sources: list[str] = Field(default_factory=list)
