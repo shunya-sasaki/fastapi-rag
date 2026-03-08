@@ -28,3 +28,11 @@ jobs:
       run: docker build . --file Dockerfile --tag ghcr.io/shunya-sasaki/fastapi-rag:latest
     - name: Push the Docker image
       run: docker push ghcr.io/shunya-sasaki/fastapi-rag:latest
+
+    - name: Trigger deploy workflow
+      uses: peter-evans/repository-dispatch@v3
+      with:
+        token: ${{ secrets.PACKAGE_PAT }}
+        repository: shunya-sasaki/docker-rag
+        event-type: image-updated
+        client-payload: '{"image": "ghcr.io/shunya-sasaki/rag-fastapi:latest"}'
