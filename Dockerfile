@@ -1,4 +1,5 @@
 FROM ghcr.io/astral-sh/uv:0.10.9-python3.12-trixie
+LABEL org.opencontainers.image.source = "https://github.com/shunya-sasaki/fastapi-rag"
 
 RUN apt-get update && apt-get install -y --no-install-recommends \
     build-essential \
